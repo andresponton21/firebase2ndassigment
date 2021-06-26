@@ -8,7 +8,7 @@ html, body{
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color:#29363F;
+    
 }
 .container{
     font-size: 2em;
@@ -167,12 +167,34 @@ button{
     box-shadow: 1px 1px 2px 3px #ccc;
 }
 
+@media only screen and (max-width: 1143px) {
+    .card{
+        font-size: 0.7em;
+    }
+    label{
+        font-size: 0.5em;
+    }
+    button{
+        font-size: 0.7em;
+    }
+   
+   }
 
 @media only screen and (max-width: 900px) {
    .container{
        display: block;
    }
+   .first-section{
+       max-width: 65%;
+   }
+   
    .nav{
        visibility: hidden;
    }
   }
+  @media only screen and (max-width: 555px) {
+    .card{
+        font-size: 0.3em;
+    }
+   
+   }

@@ -79,7 +79,18 @@ header button{
     font-size: 0.8em;
 }
 
-
+@media only screen and (max-width: 1143px) {
+    .card{
+        font-size: 0.7em;
+    }
+    label{
+        font-size: 0.5em;
+    }
+    button{
+        font-size: 0.7em;
+    }
+   
+   }
 @media only screen and (max-width: 900px) {
     .container{
         display: block;
