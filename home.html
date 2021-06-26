@@ -11,37 +11,50 @@
 <body>
     <main class="container">
     <section class="page-header">
-    <header >
+   
+        <h4 class="welcome">Welcome User</h4>
         <button class="switch-button">Log Out</button>
-    </header>
+   
     </section>
     <!-- main section of the document -->
     
     <!-- input from for user -->
     <section class="first-section">
-        <img src="logo.png" alt="logo">
+        <img src="logo.png" alt="logo" class="logo">
+        <form class="posts">
+            <textarea name="posts" class="posts"  cols="30" rows="8" placeholder="Write a post here..."></textarea>
+            <label for="img">Select an image for your post:
+                  <img src="upimg.png" class="upimg" alt="upimg">
+            </label>
+            <input type="file" class="file" id="img" name="img" accept="image/*">
+            <button type="submit" class="singnUp" >Post something</button>
+        </form>
+        <ul class="nav">
+            <li>About</li>
+            <li>Help</li>
+            <li>Contact</li>
+        </ul>
    
     </section>
         <!-- displaying data section -->
     <section class="second-section">
         
-        <form  class="subscirbe-form">
-            <label for="name">Enter your name: </label>
-                <input type="text" name="name" class="name" >
-
-            <label for="lname">Enter your last name: </label>
-                <input type="text" name="lname" class="lname" >
-           
-            <label for="email">Enter your e-mail: </label>
-                <input type="email" class="email" name="email" >
-
-            <label for="password">Enter your password: </label>
-                <input type="password" name="password" class="password" >
-
-            <button type="submit" class="singnUp">Sign Up</button>
-            
-
-        </form>
+       <div class="card">
+           <img src="userimg.png" alt="postedimg" class="posted-img">
+           <div class="posted">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+               exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+               in reprehenderit in voluptate velit esse</div>
+       </div>
+       <div class="card">
+        <img src="userimg.png" alt="postedimg" class="posted-img">
+        <div class="posted">this my going to the gggfdjdsjfkldsjfkls</div>
+    </div>
+    <div class="card">
+        <img src="userimg.png" alt="postedimg" class="posted-img">
+        <div class="posted">adfdsfdsfdsfdsfsfsfsfsfsdfffssfsdsfdsfsd</div>
+    </div>
+ 
        
     </section>
 
