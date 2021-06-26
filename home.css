@@ -34,7 +34,7 @@ html, body{
     border: none;
 }
 .switch-button{
-    font-size: 1em;
+    font-size: 0.8em;
     border-radius: 0.3em;
     border: none;
     background-color:#6ED9A1;
@@ -190,7 +190,9 @@ input:hover{
     button{
         font-size: 0.7em;
     }
-   
+    .switch-button{
+        font-size: 0.7em;
+    }
    }
 
 @media only screen and (max-width: 900px) {

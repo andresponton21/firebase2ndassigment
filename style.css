@@ -89,6 +89,9 @@ header button{
     button{
         font-size: 0.7em;
     }
+    .switch-button{
+        font-size: 0.6em;
+    }
    
    }
 @media only screen and (max-width: 900px) {
