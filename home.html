@@ -13,7 +13,7 @@
     <section class="page-header">
    
         <h4 class="welcome">Welcome [User]</h4>
-        <button class="switch-button">Log Out</button>
+        <button class="switch-button" id="logout">Log Out</button>
    
     </section>
     <!-- main section of the document -->
@@ -62,7 +62,49 @@
   
     </main>
 
-    <script src="./index.js"></script>
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+  
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  
+      <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+           apiKey: "AIzaSyBzMJm_qgoJHBBN3qre1btbMbENXC7J91Q",
+           authDomain: "humber-e36b5.firebaseapp.com",
+           projectId: "humber-e36b5",
+           storageBucket: "humber-e36b5.appspot.com",
+           messagingSenderId: "167963425048",
+           appId: "1:167963425048:web:7691245dde2a4da710c66d"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        
+        const logout = document.getElementById("logout");
+
+        logout.addEventListener('click', function(){
+            firebase.auth().onAuthStateChanged(function (user) {
+            console.log("user", user);
+            if (user) {
+              firebase.auth().signOut();
+            }else{
+              window.location = "index.html";  
+            }
+          });
+
+        })
+
+        
+        });
+      </script>
     
 
 

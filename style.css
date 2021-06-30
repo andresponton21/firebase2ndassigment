@@ -78,6 +78,10 @@ button{
 header button{
     font-size: 0.8em;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 
 @media only screen and (max-width: 1143px) {
     .card{
