@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bcloser</title>
+    <title>Bcloser | Login</title>
     <meta name="description" content="Bcloser">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -71,13 +71,13 @@
            const login = document.getElementById("login");
            const displaymsg = document.getElementById("displaymsg");
 
-           firebase.auth().onAuthStateChanged(function (user) {
+          //  firebase.auth().onAuthStateChanged(function (user) {
             
-            if (user) {
-              firebase.auth().signOut();
-              displaymsg.textContent = `Account Created Please Log In`
-            }
-          });
+          //   if (user) {
+          //     firebase.auth().signOut();
+          //     displaymsg.textContent = `Account Created Please Log In`
+          //   }
+          // });
 
            login.addEventListener("click", function (event) {
    

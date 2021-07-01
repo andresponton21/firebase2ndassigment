@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bcloser</title>
+    <title>Bcloser | Home</title>
     <meta name="description" content="Bcloser">
     <link rel="stylesheet" href="home.css">
 </head>
@@ -12,7 +12,7 @@
     <main class="container">
     <section class="page-header">
    
-        <h4 class="welcome">Welcome [User]</h4>
+        <h4 class="welcome" id="usernames"></h4>
         <button class="switch-button" id="logout">Log Out</button>
    
     </section>
@@ -89,6 +89,35 @@
         document.addEventListener("DOMContentLoaded", function () {
         
         const logout = document.getElementById("logout");
+        const usernames = document.getElementById("usernames");
+
+
+        const db = firebase.firestore();
+
+        let userRef = null;
+
+
+        function getUser(uid) {
+          db.collection("Users")
+            .doc(uid)
+            .get()
+            .then(function (doc) {
+              usernames.textContent = `Welcome ${doc.data().firstname} ${doc.data().lastname}`
+              
+            })
+            .catch(function (error) {
+              console.error(error);
+            });
+        }
+
+        firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+            userRef = user;
+            getUser(user.uid);
+          } else {
+            window.location = "login.html";
+          }
+        });
 
         logout.addEventListener('click', function(){
             firebase.auth().onAuthStateChanged(function (user) {
@@ -96,7 +125,7 @@
             if (user) {
               firebase.auth().signOut();
             }else{
-              window.location = "login.html";  
+              window.location = "login.html";
             }
           });
 

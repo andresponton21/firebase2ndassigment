@@ -44,6 +44,7 @@ html, body{
     align-self: center;
     justify-self: center;
     padding: 0.5em;
+    cursor: pointer;
 }
 .logo{
     max-width: 70%;
@@ -118,6 +119,7 @@ input:hover{
     background-color:#6ED9A1;
     color: white;
     box-shadow: 0 8px 6px -6px black;
+    cursor: pointer;
 }
 
 .nav{
