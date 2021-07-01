@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bcloser</title>
+    <meta name="description" content="Bcloser">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+    <section class="page-header">
+    <header >
+        
+        <button class="switch-button"><a href="index.html"> Create Account</a></button>
+    </header>
+    </section>
+    <!-- main section of the document -->
+    
+    <!-- input from for user -->
+    <section class="first-section">
+        <img src="logo.png" alt="logo">
+   
+    </section>
+        <!-- displaying data section -->
+    <section class="second-section">
+        
+        <form  class="subscirbe-form">
+           
+            <label for="email">Enter your e-mail: </label>
+                <input type="email" id="email" name="email" >
+            <label for="password">Enter your password: </label>
+                <input type="password" name="password" id="password" >
+            <button type="submit" id="login">LogIn</button>
+           
+            <p id="displaymsg"></p>
+
+        </form>
+       
+    </section>
+  
+    </main>
+
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+       <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+   
+       <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+   
+       <script>
+         // Your web app's Firebase configuration
+         var firebaseConfig = {
+            apiKey: "AIzaSyBzMJm_qgoJHBBN3qre1btbMbENXC7J91Q",
+            authDomain: "humber-e36b5.firebaseapp.com",
+            projectId: "humber-e36b5",
+            storageBucket: "humber-e36b5.appspot.com",
+            messagingSenderId: "167963425048",
+            appId: "1:167963425048:web:7691245dde2a4da710c66d"
+         };
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+       </script>
+   
+       <script>
+         document.addEventListener("DOMContentLoaded", function () {
+           const email = document.getElementById("email");
+           const password = document.getElementById("password");
+           const login = document.getElementById("login");
+           const displaymsg = document.getElementById("displaymsg");
+
+           firebase.auth().onAuthStateChanged(function (user) {
+            
+            if (user) {
+              firebase.auth().signOut();
+              displaymsg.textContent = `Account Created Please Log In`
+            }
+          });
+
+           login.addEventListener("click", function (event) {
+   
+            event.preventDefault();
+
+             if (email.value && password.value) {
+               firebase
+                 .auth()
+                 .signInWithEmailAndPassword(email.value, password.value)
+                 .then(function (data) {
+                   const user = firebase.auth().currentUser;
+                 })
+                 .catch(function (error) {
+                   console.error(error);
+                   displaymsg.textContent = error
+                 });
+             }
+             firebase.auth().onAuthStateChanged(function (user) {
+             if (user) {
+              
+               window.location = "home.html";
+             }
+           });
+           });
+   
+           
+         });
+       </script>
+    
+
+
+</body>
+</html>
