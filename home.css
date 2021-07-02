@@ -144,6 +144,7 @@ input:hover{
 .card{
     max-width: 40em;
     width: 80%;
+    margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
     padding: 0.5em;
@@ -179,7 +180,7 @@ input:hover{
 }
 .posted-img{
     max-height: 4em;
-    border-radius: 50%;
+    border-radius: 0.25em;
     box-shadow: 1px 1px 2px 3px #ccc;
 }
 

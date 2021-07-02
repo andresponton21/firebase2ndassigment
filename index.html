@@ -103,7 +103,14 @@
                 .then(function () {
                   console.log("User added to database!");
                 }).then(function () {
-                  window.location = "login.html";
+                  firebase.auth().onAuthStateChanged(function (user) {
+                  console.log("user", user);
+                  if (user) {
+                    firebase.auth().signOut();
+                  }else{
+                    window.location = "login.html";
+                  }
+          });
                 })
                 .catch(function (error) {
                   console.error(error);

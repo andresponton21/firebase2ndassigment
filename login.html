@@ -34,7 +34,7 @@
                 <input type="password" name="password" id="password" >
             <button type="submit" id="login">LogIn</button>
            
-            <p id="displaymsg"></p>
+            <p id="displaymsg">Now please Login!!!</p>
 
         </form>
        
@@ -71,13 +71,7 @@
            const login = document.getElementById("login");
            const displaymsg = document.getElementById("displaymsg");
 
-          //  firebase.auth().onAuthStateChanged(function (user) {
-            
-          //   if (user) {
-          //     firebase.auth().signOut();
-          //     displaymsg.textContent = `Account Created Please Log In`
-          //   }
-          // });
+        
 
            login.addEventListener("click", function (event) {
    
