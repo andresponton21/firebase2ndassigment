@@ -7,4 +7,4 @@ This application allows the user to:
 5. In this page the user can write something in the text area and choose a picture with the upload button, after that
 the user will be able to make a post after pressing the post button
 7. The user can make several post and delete them too.
-8. finally the user can logout and go back to the login page.
+8. Finally the user can logout and go back to the login page.
