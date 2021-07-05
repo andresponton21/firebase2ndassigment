@@ -10,5 +10,5 @@ the user will be able to make a post after pressing the post button
 8. Finally the user can logout and go back to the login page.
 
 By: 
-Andres Ponton
-Tutor
+### Andres Ponton
+### Tutor
