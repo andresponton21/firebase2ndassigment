@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bcloser | Login</title>
     <meta name="description" content="Bcloser">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <main class="container">
     <section class="page-header">
     <header >
         
-        <button class="switch-button"><a href="index.html"> Create Account</a></button>
+        <button class="switch-button"><a href="../index.html"> Create Account</a></button>
     </header>
     </section>
     <!-- main section of the document -->
     
     <!-- input from for user -->
     <section class="first-section">
-        <img src="logo.png" alt="logo">
+        <img src="../img/logo.png" alt="logo">
    
     </section>
         <!-- displaying data section -->
@@ -64,42 +64,7 @@
          firebase.initializeApp(firebaseConfig);
        </script>
    
-       <script>
-         document.addEventListener("DOMContentLoaded", function () {
-           const email = document.getElementById("email");
-           const password = document.getElementById("password");
-           const login = document.getElementById("login");
-           const displaymsg = document.getElementById("displaymsg");
-
-        
-
-           login.addEventListener("click", function (event) {
-   
-            event.preventDefault();
-
-             if (email.value && password.value) {
-               firebase
-                 .auth()
-                 .signInWithEmailAndPassword(email.value, password.value)
-                 .then(function (data) {
-                   const user = firebase.auth().currentUser;
-                 })
-                 .catch(function (error) {
-                   console.error(error);
-                   displaymsg.textContent = error
-                 });
-             }
-             firebase.auth().onAuthStateChanged(function (user) {
-             if (user) {
-              
-               window.location = "home.html";
-             }
-           });
-           });
-   
-           
-         });
-       </script>
+       <script src="../js/login.js"></script>
     
 
 

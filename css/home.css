@@ -99,6 +99,7 @@ label{
 .upimg{
     max-width: 25%;
     margin-left: 0.2em;
+    cursor: pointer;
 }
 input{
     height: 1.8em;
@@ -181,6 +182,16 @@ input:hover{
 .posted-img{
     max-height: 4em;
     border-radius: 0.25em;
+    box-shadow: 1px 1px 2px 3px #ccc;
+}
+span{
+    cursor: pointer;
+    margin: auto;
+    color: rgb(97, 64, 64); 
+    cursor: pointer;
+    position:absolute;
+    border-radius: 0.15em;
+    padding: 0.1em;
     box-shadow: 1px 1px 2px 3px #ccc;
 }
 

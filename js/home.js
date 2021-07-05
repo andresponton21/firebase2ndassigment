@@ -1,15 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  //USER FUNCTIONALITY
+
     console.log("Loaded!");
+    const logout = document.getElementById("logout");
+    const usernames = document.getElementById("usernames");
+
+
+    const db = firebase.firestore();
+
+    let userRef = null;
+
+
+    function getUser(uid) {
+      db.collection("Users")
+        .doc(uid)
+        .get()
+        .then(function (doc) {
+          usernames.textContent = `Welcome ${doc.data().firstname} ${doc.data().lastname}`
+          
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
+
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        userRef = user;
+        getUser(user.uid);
+      } else {
+        window.location = "login.html";
+      }
+    });
+
+    logout.addEventListener('click', function(){
+        firebase.auth().onAuthStateChanged(function (user) {
+        console.log("user", user);
+        if (user) {
+          firebase.auth().signOut();
+        }else{
+          window.location = "login.html";
+
+        }
+      });
+
+    })
+
+
+
+
+//POSTS FUNCTIONALITY
+
   
     const fileButton = document.getElementById("img");
-
     const form = document.getElementById("form");
     const messageToPost = document.getElementById("msg");
     const post = document.getElementById("card");
     const progress = document.getElementById("progress");
    
   
-    const db = firebase.firestore();
+    //const db = firebase.firestore();
   
     const fbFolder = "images";
   
@@ -114,16 +165,12 @@ document.addEventListener("DOMContentLoaded", function () {
             messagediv.className = "posted"
 
             const span = document.createElement("span");
-                      span.innerHTML = "&#10005;";
-                      span.style = `margin: auto;
-                      color: grey; cursor: pointer;
-                      position:absolute;
-                      border: 1px solid grey;
-                      border-radius: 0.15em;`;
+            span.innerHTML = "&#10005;";
+                      
 
-            function getUser(uid) {
+            function getPost(postid) {
             db.collection("Posts")
-                .doc(uid)
+                .doc(postid)
                 .get()
                 .then(function (doc) {
                  console.log(doc.data().name)
@@ -133,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error(error);
                 });
             }
-            getUser(imgId)
+            getPost(imgId)
 
             span.addEventListener("click", function () {
                 itemRef

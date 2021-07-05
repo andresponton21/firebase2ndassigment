@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bcloser | Home</title>
     <meta name="description" content="Bcloser">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../css/home.css">
 </head>
 <body>
     <main class="container">
@@ -20,11 +20,11 @@
     
     <!-- input from for user -->
     <section class="first-section">
-        <img src="logo.png" alt="logo" class="logo">
+        <img src="../img/logo.png" alt="logo" class="logo">
         <form class="posts" id="form">
             <textarea name="posts" class="posts" id="msg" cols="30" rows="8" placeholder="Write a post here..."></textarea>
             <label for="img">Select an image for your post:
-                  <img src="upimg.png" class="upimg" alt="upimg">
+                  <img src="../img/upimg.png" class="upimg" alt="upimg">
             </label>
             <input type="file" class="file" id="img" name="img" accept=".jpg">
             <progress max="100" value="0" id="progress"></progress>
@@ -75,58 +75,10 @@
         firebase.initializeApp(firebaseConfig);
       </script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        
-        const logout = document.getElementById("logout");
-        const usernames = document.getElementById("usernames");
-
-
-        const db = firebase.firestore();
-
-        let userRef = null;
-
-
-        function getUser(uid) {
-          db.collection("Users")
-            .doc(uid)
-            .get()
-            .then(function (doc) {
-              usernames.textContent = `Welcome ${doc.data().firstname} ${doc.data().lastname}`
-              
-            })
-            .catch(function (error) {
-              console.error(error);
-            });
-        }
-
-        firebase.auth().onAuthStateChanged(function (user) {
-          if (user) {
-            userRef = user;
-            getUser(user.uid);
-          } else {
-            window.location = "login.html";
-          }
-        });
-
-        logout.addEventListener('click', function(){
-            firebase.auth().onAuthStateChanged(function (user) {
-            console.log("user", user);
-            if (user) {
-              firebase.auth().signOut();
-            }else{
-              window.location = "login.html";
-            }
-          });
-
-        })
-
-        
-        });
-      </script>
+   
     
   
-    <script src="index.js"></script>
+    <script src="../js/home.js"></script>
 
 
 
